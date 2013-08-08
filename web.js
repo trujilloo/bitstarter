@@ -7,22 +7,22 @@ var fs = require('fs');
 var htmlfile = "index.html";
 
 //OT commented out these two and replaced with this one
-//var app = express();
-var app = express.createServer(express.logger());
-//app.use(express.logger());
+var app = express();
+//var app = express.createServer(express.logger());
+app.use(express.logger());
 
 
 app.get('/', function(request, response) {
 //OT replaced response send with file
-//  response.send('Hello World!');
-  var html = fs.readFileSync(htmlfile).toString();
-  response.send(html);
+  response.send('Hello World 3!');
+//  var html = fs.readFileSync(htmlfile).toString();
+//  response.send(html);
     
 });
 
 //OT changed ports
-//var port = process.env.PORT || 5000;
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 5000;
+//var port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
